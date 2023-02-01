@@ -1,0 +1,23 @@
+.tab {
+  &-list {
+    display: flex;
+    align-items: center;
+  }
+  &-item {
+    border: 1px solid $border-color;
+  }
+  &-link {
+    display: inline-block;
+    padding: 5px 15px;
+
+    &.active {
+      background-color: $primary;
+      color: $white;
+      font-weight: $font-weight-semibold;
+    }
+  }
+  &-content {
+    border: 1px solid $border-color;
+    padding: 15px;
+  }
+}
