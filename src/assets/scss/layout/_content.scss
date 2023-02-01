@@ -1,0 +1,81 @@
+.wrapper-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.content-wrapper {
+  flex-grow: 1;
+  overflow: auto;
+}
+.hero-section {
+  padding: 80px 0;
+}
+
+.hero-title {
+  font-size: $font-size-base * 5;
+  font-weight: $font-weight-black;
+  color: $secondary;
+  max-width: 900px;
+  margin: auto;
+  .dark-theme & {
+    @extend .gradient-bg;
+  }
+}
+
+.hero-desc {
+  margin: 25px auto 40px;
+  font-size: $font-size-base * 1.4;
+  color: rgba(60, 60, 60, 0.8);
+}
+
+// Content Wrapper
+.wrapper {
+  padding: 0 $content-padding-x;
+}
+
+// Split Container
+.split-container {
+  display: flex;
+  height: 100%;
+
+  .left-view {
+    padding-top: 50px;
+    flex: 0 0 $split-view-width;
+    max-width: $split-view-width;
+  }
+
+  .content-view {
+    padding-top: 80px;
+    flex-grow: 1;
+  }
+
+  .right-view {
+    padding-top: 80px;
+    flex: 0 0 $split-view-width;
+    max-width: $split-view-width;
+  }
+}
+
+// Common Listing
+.common-nav {
+  &__list {
+    font-size: $font-size-base * 0.8125;
+  }
+  &__title {
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.2px;
+    color: $secondary;
+    margin: 20px 0 10px;
+  }
+  &__link {
+    display: flex;
+    padding: 5px 0;
+    color: $common-nsv-link-color;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: $font-family;
+  background-color: map-get($lightTheme, body-bg);
+  color: map-get($lightTheme, body-text);
+
+  &.dark-theme {
+    background-color: map-get($darkTheme, body-bg);
+    color: map-get($darkTheme, body-text);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.gradient-bg {
+  background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Container
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 100%;
+  margin: auto;
+
+  @media screen and (min-width: 992px) {
+    max-width: 980px;
+  }
+
+  @media screen and (min-width: 1300px) {
+    max-width: 1200px;
+  }
+}

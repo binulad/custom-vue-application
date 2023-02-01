@@ -1,30 +1,39 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="wrapper-container">
+    <main-header />
+    <main class="content-wrapper">
+      <router-view />
+    </main>
+  </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import MainHeader from "@/components/MainHeader.vue";
+
+export default defineComponent({
+  name: "App",
+  components: {
+    MainHeader,
+  },
+  computed: {
+    isDarkTheme() {
+      // return store.getters.getDarkTheme;
+      return localStorage.getItem("theme");
+    },
+  },
+  mounted() {
+    if (this.isDarkTheme == "dark") {
+      document.body.classList.add("dark-theme");
+    }
+  },
+});
+</script>
+
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  height: 100%;
+  width: 100%;
 }
 </style>

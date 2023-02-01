@@ -1,0 +1,178 @@
+.main-header {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0 $header-padding-x;
+  height: $header-height;
+  border-bottom: 1px solid map-get($lightTheme, border-color);
+  justify-content: space-between;
+
+  .dark-theme & {
+    border-bottom: 1px solid map-get($darkTheme, border-color);
+  }
+}
+
+// Brand Logo
+.brand-logo {
+  display: flex;
+
+  &__link {
+    @include flex-align-center;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__img {
+    width: 25px;
+    margin-right: 10px;
+  }
+
+  &__text {
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Nav Content
+.nav-content {
+  display: flex;
+  flex-grow: 1;
+
+  .search-btn {
+    @include flex-align-center;
+    background-color: transparent;
+    border: none;
+    margin-left: 15px;
+    font-size: $font-size-base * 0.875;
+    font-weight: $font-weight-medium;
+    color: $gray;
+    cursor: pointer;
+  }
+}
+
+// Navigation
+.header-nav {
+  display: flex;
+
+  &__list {
+    display: flex;
+
+    & + & {
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid map-get($lightTheme, border-color);
+
+      .dark-theme & {
+        border-color: map-get($darkTheme, border-color);
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    @include flex-align-center;
+    padding: 0 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-family: inherit;
+    font-size: $font-size-base * 0.75;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.1px;
+    color: map-get($lightTheme, nav-link-color);
+    cursor: pointer;
+    
+    .dark-theme & {
+      color: map-get($darkTheme, nav-link-color);;
+    }
+    &:hover {
+      color: $primary;
+    }
+    &.active {
+      border-bottom-color: $primary;
+    }
+  }
+
+
+  // Dropdown
+  .dropdown {
+    position: relative;
+    display: flex;
+
+    &-btn {
+      &:hover {
+        color: $gray;
+      }
+    }
+
+    &-icon {
+      margin-left: 5px;
+      height: 14px;
+      width: 14px;
+      fill: currentColor;
+    }
+
+    &-list {
+      position: absolute;
+      top: 90%;
+      right: 0;
+      padding: 8px 0;
+      min-width: 140px;
+      border-radius: 0.25rem;
+      background-color: map-get($lightTheme, body-bg);
+      box-shadow: map-get($lightTheme, box-shadow);
+
+      .dark-theme & {
+        background-color: map-get($darkTheme, body-bg);
+        box-shadow: map-get($darkTheme, box-shadow);
+      }
+    }
+
+    &-link {
+      display: flex;
+      padding: 6px 12px;
+      font-size: $font-size-base * 0.75;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+// Theme Toggle Switch
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  &__btn {
+    position: relative;
+    height: 20px;
+    width: 40px;
+    padding: 0;
+    border: 1px solid $border-color;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+
+    .dark-theme & {
+      background-color: #8e8e8e;
+      border-color: map-get($darkTheme, border-color);
+    }
+  }
+  &__switch {
+    position: relative;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: $white;
+    transition: all 0.4s ease-in-out;
+
+    .dark-theme & {
+      margin-left: auto;
+      background-color: map-get($darkTheme, body-bg);
+    }
+  }
+}
